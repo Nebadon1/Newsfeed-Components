@@ -98,19 +98,40 @@ const data = [
 
     <span class='expandButton'></span>
   </div> */
+  let articles = document.querySelector('.articles');
+
+  data.forEach(info => {
+    console.log('creating panel:', info.title)
+    articles.appendChild(componentOne(info.title, info.date, info.content))
+  })
+
+  function componentOne(title, date, firstParagraph, secondParagraph, thirdParagraph ){
     
-  function componentOne(){
-    let articles = document.querySelector('.articles')
+    let article = document.createElement('div');
+    article.setAttribute('class', 'article');
+
     let titleArticle = document.createElement('h2')
-    let date = document.createElement('p');
-    date.setAttribute('class', 'date');
+    //titleArticle.textContent = "Fake News!";
+
+    let articleDate = document.createElement('p');
+    articleDate.setAttribute('class', 'date');
+
     let btnSpan = document.createElement('span');
     btnSpan.setAttribute('class', 'expandButton');
-    
-    articles.appendChild(titleArticle)
-    articles.appendChild(date);
-    articles.appendChild(btnSpan);
-    return articles
+    btnSpan.textContent = "Click to Expand";
+
+    articles.appendChild(article);
+    article.appendChild(titleArticle)
+    article.appendChild(articleDate);
+    article.appendChild(btnSpan);
+
+    //set text content
+    titleArticle.textContent =title;
+    articleDate.textContent = date;
+     
+    btnSpan.addEventListener('click', event => {
+      console.log('button clicked', event.target)})
+    return article
   };
   console.log(componentOne());
 
