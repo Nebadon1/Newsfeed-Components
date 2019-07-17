@@ -21,11 +21,14 @@ let menuItems = [
 */
  let  theHeader = document.querySelector('.header');
 
-  menuItems.forEach(info => {
-   console.log('creating menu:', info)
+  let theArray = Array.from(menuItems);
+
+  theArray.forEach(() => {
+ 
+    theHeader.appendChild(theGreatMenu(theArray));
  });
   
-function theGreatMenu (info){
+function theGreatMenu (){
 
  let theMenu = document.createElement('div');
  theMenu.setAttribute('class', 'menu');
@@ -50,14 +53,30 @@ function theGreatMenu (info){
  listMenu.appendChild(logOut);
 
  //set text content
- students.textContent = info;
+ students.textContent = theArray[0];
+ faculty.textContent = theArray[1];
+ whatsNew.textContent = theArray[2];
+ techTrends.textContent = theArray[3];
+ music.textContent = theArray[4];
+ logOut.textContent = theArray[5];
 
 
 
  return theMenu;
 }
  
-console.log(theGreatMenu());
+const menu = document.querySelector(".menu");
+
+const toggleMenu = (event) => {
+ 
+  menu.classList.toggle("menu--open");
+  
+}
+
+const menuButton = document.querySelector(".menu-button");
+
+menuButton.addEventListener( "click", toggleMenu );
+
 /*
   Pass the function an array as it's only argument.
 
