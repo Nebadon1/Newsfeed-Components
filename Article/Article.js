@@ -97,9 +97,24 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div> */
+    
+  function componentOne(){
+    let articles = document.querySelector('.articles')
+    let titleArticle = document.createElement('h2')
+    let date = document.createElement('p');
+    date.setAttribute('class', 'date');
+    let btnSpan = document.createElement('span');
+    btnSpan.setAttribute('class', 'expandButton');
+    
+    articles.appendChild(titleArticle)
+    articles.appendChild(date);
+    articles.appendChild(btnSpan);
+    return articles
+  };
+  console.log(componentOne());
 
-  Hint: You will need to use createElement more than once here!
+ /* Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
 
@@ -107,16 +122,8 @@ const data = [
 
   Step 3: return the entire component.
 
-<<<<<<< HEAD
-let articles = document.querySelectorAll(".article");
-
-articles.forEach((domElement)=>{
-  return new Article(domElement);
-});
-=======
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
->>>>>>> 67eca0761e86dc3d7a9305ee68e3365ca99f16f7
