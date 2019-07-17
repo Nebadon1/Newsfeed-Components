@@ -101,8 +101,8 @@ const data = [
   let articles = document.querySelector('.articles');
 
   data.forEach(info => {
-    console.log('creating panel:', info.title)
-    articles.appendChild(componentOne(info.title, info.date, info.content))
+    //console.log('creating panel:', info.title)
+    articles.appendChild(componentOne(info.title, info.date, info.firstParagraph,info.secondParagraph, info.thirdParagraph))
   })
 
   function componentOne(title, date, firstParagraph, secondParagraph, thirdParagraph ){
@@ -116,24 +116,45 @@ const data = [
     let articleDate = document.createElement('p');
     articleDate.setAttribute('class', 'date');
 
+    let theFirstParagraph = document.createElement('p');
+
+    let theSecondParagraph = document.createElement('p');
+
+    let theThirdParagraph = document.createElement('p');
+
     let btnSpan = document.createElement('span');
     btnSpan.setAttribute('class', 'expandButton');
-    btnSpan.textContent = "Click to Expand";
+    
 
+    
     articles.appendChild(article);
     article.appendChild(titleArticle)
     article.appendChild(articleDate);
+    article.appendChild(theFirstParagraph);
+    article.appendChild(theSecondParagraph);
+    article.appendChild(theThirdParagraph);
     article.appendChild(btnSpan);
+   
 
     //set text content
     titleArticle.textContent =title;
     articleDate.textContent = date;
-     
+    theFirstParagraph.textContent = firstParagraph;
+    theSecondParagraph.textContent = secondParagraph;
+    theThirdParagraph.textContent =  thirdParagraph;
+    btnSpan.textContent = "Click to Expand"; 
+    
+
+
     btnSpan.addEventListener('click', event => {
-      console.log('button clicked', event.target)})
+      console.log('button clicked', event.target)
+      // 1. toggle hide-btn on BOTH buttons
+     
+      // 2. Change visibility of the content w/ 'toggle-on'
+     article.classList.toggle('article-open')});
     return article
   };
-  console.log(componentOne());
+  //console.log(componentOne());
 
  /* Hint: You will need to use createElement more than once here!
 
