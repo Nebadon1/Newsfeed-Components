@@ -147,11 +147,10 @@ const data = [
 
 
     btnSpan.addEventListener('click', event => {
-      console.log('button clicked', event.target)
-      // 1. toggle hide-btn on BOTH buttons
+      //console.log('button clicked', event.target)
      
-      // 2. Change visibility of the content w/ 'toggle-on'
-     article.classList.toggle('article-open')});
+      article.classList.toggle('article-open')});
+
     return article
   };
   //console.log(componentOne());

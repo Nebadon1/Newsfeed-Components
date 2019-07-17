@@ -18,7 +18,47 @@ let menuItems = [
       {each menu item as a list item}
     </ul>
   </div>
+*/
+ let  theHeader = document.querySelector('.header');
 
+  menuItems.forEach(info => {
+   console.log('creating menu:', info)
+ });
+  
+function theGreatMenu (info){
+
+ let theMenu = document.createElement('div');
+ theMenu.setAttribute('class', 'menu');
+
+ let listMenu = document.createElement('ul');
+
+ let students = document.createElement('li');
+ let faculty = document.createElement('li');
+ let whatsNew = document.createElement('li');
+ let techTrends = document.createElement('li');
+ let music = document.createElement('li');
+ let logOut = document.createElement('li');
+
+ //Appends
+ theHeader.appendChild(theMenu);
+ theMenu.appendChild(listMenu);
+ listMenu.appendChild(students);
+ listMenu.appendChild(faculty);
+ listMenu.appendChild(whatsNew);
+ listMenu.appendChild(techTrends);
+ listMenu.appendChild(music);
+ listMenu.appendChild(logOut);
+
+ //set text content
+ students.textContent = info;
+
+
+
+ return theMenu;
+}
+ 
+console.log(theGreatMenu());
+/*
   Pass the function an array as it's only argument.
 
   Step 2: Iterate over the array creating a list item <li> element for each item in the array. 
