@@ -21,12 +21,11 @@ let menuItems = [
 */
  let  theHeader = document.querySelector('.header');
 
-  let theArray = Array.from(menuItems);
+ let theArray = menuItems;
 
-  theArray.forEach(() => {
- 
-    theHeader.appendChild(theGreatMenu(theArray));
- });
+  
+ theHeader.appendChild(theGreatMenu(theArray));
+
   
 function theGreatMenu (){
 
