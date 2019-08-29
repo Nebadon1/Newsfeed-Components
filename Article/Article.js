@@ -97,9 +97,65 @@ const data = [
     {three separate paragraph elements}
 
     <span class='expandButton'></span>
-  </div>
+  </div> */
+  let articles = document.querySelector('.articles');
 
-  Hint: You will need to use createElement more than once here!
+  data.forEach(info => {
+    //console.log('creating panel:', info.title)
+    articles.appendChild(componentOne(info.title, info.date, info.firstParagraph,info.secondParagraph, info.thirdParagraph))
+  })
+
+  function componentOne(title, date, firstParagraph, secondParagraph, thirdParagraph ){
+    
+    let article = document.createElement('div');
+    article.setAttribute('class', 'article');
+
+    let titleArticle = document.createElement('h2')
+    //titleArticle.textContent = "Fake News!";
+
+    let articleDate = document.createElement('p');
+    articleDate.setAttribute('class', 'date');
+
+    let theFirstParagraph = document.createElement('p');
+
+    let theSecondParagraph = document.createElement('p');
+
+    let theThirdParagraph = document.createElement('p');
+
+    let btnSpan = document.createElement('span');
+    btnSpan.setAttribute('class', 'expandButton');
+    
+
+    
+    articles.appendChild(article);
+    article.appendChild(titleArticle)
+    article.appendChild(articleDate);
+    article.appendChild(theFirstParagraph);
+    article.appendChild(theSecondParagraph);
+    article.appendChild(theThirdParagraph);
+    article.appendChild(btnSpan);
+   
+
+    //set text content
+    titleArticle.textContent =title;
+    articleDate.textContent = date;
+    theFirstParagraph.textContent = firstParagraph;
+    theSecondParagraph.textContent = secondParagraph;
+    theThirdParagraph.textContent =  thirdParagraph;
+    btnSpan.textContent = "Click to Expand"; 
+    
+
+
+    btnSpan.addEventListener('click', event => {
+      //console.log('button clicked', event.target)
+     
+      article.classList.toggle('article-open')});
+
+    return article
+  };
+  //console.log(componentOne());
+
+ /* Hint: You will need to use createElement more than once here!
 
   Your function should take either an object as it's one argument, or 5 separate arguments mapping to each peice of the data object above.
 
@@ -107,16 +163,8 @@ const data = [
 
   Step 3: return the entire component.
 
-<<<<<<< HEAD
-let articles = document.querySelectorAll(".article");
-
-articles.forEach((domElement)=>{
-  return new Article(domElement);
-});
-=======
   Step 4: Map over the data, creating a component for each oject and add each component to the DOM as children of the 'articles' div.
 
   Step 5: Add a new article to the array. Make sure it is in the same format as the others. Refresh the page to see the new artible
 
 */
->>>>>>> 67eca0761e86dc3d7a9305ee68e3365ca99f16f7
